@@ -17,7 +17,7 @@
 //       '### '
 //       '####'
 
-function steps(n, row = 0, stair= '') {
+function steps(n, row = 0, stair = '') {
   if(n === row){
     return;
   }
