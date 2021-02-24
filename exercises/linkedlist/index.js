@@ -111,10 +111,29 @@ class LinkedList {
     }
 
     let previous = this.getAt(index - 1);
-    if(!previous.next){
-      return null;
+    if(!previous.next || !previous){
+      return;
     }
     previous.next = previous.next.next;
+  }
+
+  insertAt(data, index) {
+    // empty linked list
+    if(!this.head) {
+      this.head = new Node(data);
+      return;
+    }
+
+    if(index === 0) {
+      this.head = new Node(data, this.head);
+      return;
+    }
+
+    const previous = this.getAt(index - 1) || this.getLast();
+    const node = new Node(data, previous.next);
+
+
+    previous.next = node;
   }
 }
 
